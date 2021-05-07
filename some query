@@ -1,0 +1,6 @@
+4.select * from Orders order by CNUM desc;
+5.select distinct(Salespeople.SNAME),Salespeople.SNUM,Orders.SNUM from Salespeople inner join Orders on Salespeople.SNUM=Orders.SNUM;
+6. Customers.CNAME,Customers.SNUM,Salespeople.SNAME from Customers left join Salespeople on Customers.SNUM=Salespeople.SNUM;
+7. select Salespeople.SNAME,Salespeople.SNUM,count(Salespeople.SNUM)>1 from Salespeople left join Customers on Salespeople.SNUM=Customers.SNUM group by Customers.SNUM;
+8. select Salespeople.SNAME,count(Orders.SNUM) from Salespeople left join Orders on Salespeople.SNUM=Orders.SNUM  group by Orders.SNUM  order by count(Orders.SNUM) desc;
+9.select * from Customers where CITY='SanJose';
