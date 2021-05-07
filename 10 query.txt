@@ -1,0 +1,24 @@
+3.select Orders.AMT,Salespeople.SNUM,Salespeople.SNAME from Salespeople inner join Orders on Salespeople.SNUM=Orders.SNUM order by Orders.AMT;
+4.select * from Orders order by CNUM desc;
+5.select distinct(Salespeople.SNAME),Salespeople.SNUM,Orders.SNUM from Salespeople inner join Orders on Salespeople.SNUM=Orders.SNUM;
+6. Customers.CNAME,Customers.SNUM,Salespeople.SNAME from Customers left join Salespeople on Customers.SNUM=Salespeople.SNUM;
+7. select Salespeople.SNAME,Salespeople.SNUM,count(Salespeople.SNUM)>1 from Salespeople left join Customers on Salespeople.SNUM=Customers.SNUM group by Customers.SNUM;
+8. select Salespeople.SNAME,count(Orders.SNUM) from Salespeople left join Orders on Salespeople.SNUM=Orders.SNUM  group by Orders.SNUM  order by count(Orders.SNUM) desc;
+9.select * from Customers where CITY='SanJose';
+10.select Salespeople.SNAME,Salespeople.CITY,Customers.CNAME,Customers.CITY from Customers cross join Salespeople on Customers.SNUM=Salespeople.SNUM;/
+select salespeople.sname,customers.cname,customers.city from salespeople, customers where salespeople.snum=customers.snum and salespeople.city=customers.city;
+11. select CNAME,CITY from Customers where CITY='Sanjose' and RATING>200;
+12.select SNAME,COMM from Salespeople where CITY='London';
+13.select ONUM,AMT from Orders where SNUM=1004;/select salespeople.sname,customers.cnum,orders2.onum,orders2.amt from salespeople,orders2 ,customers  where salespeople.snum=customers.snum and customers.cnum=orders2.cnum and sname='motika';/select ONUM from salespeople INNER JOIN Orders where salespeople.SNUM=Orders.SNUM AND Salespeople.SNAME="Motika"; /SELECT ONUM FROM ORDERS WHERE SNUM IN( SELECT SNUM FROM SALESPEOPLE WHERE SNAME LIKE 'MOTIKA');
+14. select Customers.CNAME,Orders.ODATE from Customers left join Orders on Customers.CNUM=Orders.CNUM where Orders.ODATE='1990-03-10';
+15.select sum(AMT),ODATE from Orders where AMT>=2000 group by ODATE;
+16.select SNAME from Salespeople where exists(select SNAME from Customers where Customers.SNUM=Salespeople.SNUM and RATING=100);
+17. select SNAME from Salespeople where exists(select CNAME from Customers where Salespeople.SNUM=Customers.SNUM and Rating=300);
+18.select CNAME from customers where CNUM=1000+(select SNUM from Salespeople where SNAME='Serres');
+19.
+20.select Salespeople.SNAME,(Orders.AMT),Orders.ODATE from Salespeople cross join Orders on Salespeople.SNUM=Orders.SNUM  where Orders.AMT>3000 group by Salespeople.SNAME;
+21select Orders.ONUM,Orders.AMT,Salespeople.SNAME from Orders inner join Salespeople on Orders.SNUM=Salespeople.SNUM where Orders.ODATE='1990-03-10';
+22.select Customers.CNAME,Customers.CITY from Customers inner join Salespeople on Customers.SNUM=Salespeople.SNUM where Salespeople.SNAME='Serres';
+23.select * from Customers where RATING>200;
+24. select count(distinct Salespeople.SNAME) from Salespeople inner join Orders on Salespeople.SNUM=Orders.SNUM ;
+25. select Customers.CNAME,Salespeople.SNAME,Salespeople.COMM from Customers left join Salespeople on Customers.SNUM=Salespeople.SNUM where Salespeople.COMM>12;
